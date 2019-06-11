@@ -1,0 +1,14 @@
+/* === GENERAL STYLING === */
+
+.wrapper {
+  width: 80%;
+  margin: 0 auto;
+}
+
+/* === GOAL TREE STYLING === */
+
+.goalBranch {
+  border: 1px solid #ddd;
+  margin: 1rem 0;
+  text-align: center;
+}
