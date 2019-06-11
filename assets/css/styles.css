@@ -1,5 +1,23 @@
 /* === GENERAL STYLING === */
 
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  color: white;
+  background-color: #D28F34;
+  padding: 0 1rem;
+}
+
+main {
+  margin: 8rem 0;
+}
+
 .wrapper {
   width: 80%;
   margin: 0 auto;
