@@ -1,6 +1,10 @@
 var goalTree = {
   goals: [1,2,3,4],
 
+  addGoalToEnd: function(goalText) {
+    this.goals.push(goalText);
+  },
+
   addGoal: function(goalText, depth) {
     this.goals.splice(depth, 0, goalText);
   },
@@ -19,3 +23,9 @@ var goalTree = {
     this.addGoal(goalText, targetDepth); // adds goal at new location
   }
 }
+
+document.getElementById("inputForm").addEventListener("submit", function(evt){
+  evt.preventDefault();
+  goalTree.addGoalToEnd(evt.value);
+  console.log(evt);
+});
