@@ -1,5 +1,5 @@
 var goalTree = {
-  goals: [1,2,3,4],
+  goals: [],
 
   addGoalToEnd: function(goalText) {
     this.goals.push(goalText);
@@ -24,8 +24,29 @@ var goalTree = {
   }
 }
 
-document.getElementById("inputForm").addEventListener("submit", function(evt){
+var loadGoals = function() {
+  // 1. Removes any previously present elements in goalTree div
+  var goalTreeDiv = document.getElementById("goalTree");
+  while (goalTreeDiv.firstChild) {
+    goalTreeDiv.removeChild(goalTreeDiv.firstChild);
+  }
+
+  // 2. Adds every goal into the now empty GoalTree div
+  for (i = 0; i < goalTree.goals.length; i++) {
+    var goalBranch = document.createElement("div"); // new branch
+    goalBranch.classList.add("goalBranch"); // styling for branch
+    var goalText = document.createElement("h2"); // new text
+    goalText.innerHTML = goalTree.goals[i]; // contents of text
+    goalBranch.appendChild(goalText); // append text to branch
+    goalTreeDiv.appendChild(goalBranch); // append branch to tree
+  }
+  // document.getElementById("goalForm").style.display = "none";
+}
+
+document.getElementById("goalForm").addEventListener("submit", function(evt){
   evt.preventDefault();
-  goalTree.addGoalToEnd(evt.value);
-  console.log(evt);
+  var goalInput = document.getElementById("goalInput");
+  goalTree.addGoalToEnd(goalInput.value);
+  goalInput.value = "";
+  loadGoals();
 });
